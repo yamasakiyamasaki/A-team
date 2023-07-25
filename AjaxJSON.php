@@ -19,7 +19,7 @@
               <input type="number" min="0" name="itemB" class="" placeholder="Bの注文個数">個
               </div>   
               <div>
-              <input type="number" min="0" name="itemB" class="" placeholder="Cの注文個数">個
+              <input type="number" min="0" name="itemC" class="" placeholder="Cの注文個数">個
               </div>   
             </div>
         </div>
