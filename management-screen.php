@@ -163,6 +163,7 @@
 </body>
 </html>
 
+
 <!-- 【注文管理画面】◎表示する -->
 <!-- http://localhost/A-team/management-screen.php -->
 
