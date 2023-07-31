@@ -47,6 +47,10 @@
             </div>
         </div>
     </form> 
-                 
+              
+    
 </body>
 </html>
+
+<!-- 【トップページ】◎表示する -->
+<!-- http://localhost/A-team/index.php -->
