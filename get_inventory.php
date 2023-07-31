@@ -30,4 +30,5 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
+
 <!-- 注文管理画面に在庫数を表示する -->
