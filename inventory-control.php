@@ -71,6 +71,7 @@
 </body>
 </html>
 
+
 <!-- 【在庫管理表】◎表示する -->
 <!-- http://localhost/A-team/inventory-control.php -->
 
