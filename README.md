@@ -24,37 +24,37 @@ AJAXとJSONを使用
 
 【ファイル構成】
 
-index.php
+●index.php
 
-【トップページ】◎表示する
+トップページ◎表示する
 
 http://localhost/A-team/index.php
 
 
-process.php
+●process.php
 
 トップページのお問い合わせフォーム、注文内容の送信
 
 
-management-screen.php
+●management-screen.php
 
-【注文管理画面】◎表示する
+注文管理画面◎表示する
 
 http://localhost/A-team/management-screen.php
 
 
-delete_order.php
+●delete_order.php
 
 注文管理画面で削除したデータの表示を消す、データベースに数量を戻す
 
 
-inventory-control.php
+●inventory-control.php
 
-【在庫管理表】◎表示する
+在庫管理表◎表示する
 
 http://localhost/A-team/inventory-control.php
 
 
-get_inventory.php
+●get_inventory.php
 
 注文管理画面に在庫数を表示する
