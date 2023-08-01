@@ -18,66 +18,42 @@
             background-color: #f2f2f2;
         }
     </style>
+    <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ?>
     <script>
         function confirmDelete(orderId, orderName) {
-            var result = confirm("IDナンバー " + orderId + " を削除してよろしいですか？");
-            if (result) {
-                // 「はい」を選択した場合はPHPに注文IDを送信して削除処理を実行
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "delete_order.php", true);
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-                // 削除したアイテム数を設定
-                var deletedItemCounts = {
-                    itemA: 0, // このサンプルコードでは削除時の在庫数更新処理は省略しているので0を設定
-                    itemB: 0,
-                    itemC: 0
-                };
-
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // 削除が成功したら、行をテーブルから削除
-                            var row = document.getElementById("orderRow_" + orderId);
-                            row.parentNode.removeChild(row);
-                            // 在庫数を更新
-                            updateInventory();
-                        } else {
-                            alert("削除エラーが発生しました。");
-                        }
-                    }
-                };
-
-                xhr.send("orderId=" + encodeURIComponent(orderId) + "&deletedItemCounts=" + JSON.stringify(deletedItemCounts));
-            }
+            // 既存のconfirmDelete関数のコードをここに記述
+            // ...
         }
 
         function updateInventory() {
-            // 在庫数を取得して表示する処理
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "get_inventory.php", true);
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // レスポンスから在庫数を取得
-                        var inventoryData = JSON.parse(xhr.responseText);
-                        document.getElementById("itemA_stock").innerText = inventoryData.itemA;
-                        document.getElementById("itemB_stock").innerText = inventoryData.itemB;
-                        document.getElementById("itemC_stock").innerText = inventoryData.itemC;
-                    } else {
-                        alert("在庫数の取得エラーが発生しました。");
-                    }
-                }
-            };
-
-            xhr.send();
+            // 既存のupdateInventory関数のコードをここに記述
+            // ...
+        }
+        // 新たに在庫数を取得して表示する関数
+        function updateInventoryTable() {
+            // AJAXを使ってget_inventory.phpから在庫データを取得
+            fetch('get_inventory.php')
+                .then(response => response.json())
+                .then(data => {
+                    // 在庫情報をテーブルのセルに更新
+                    document.getElementById('itemA_stock').innerText = data['itemA'] || '';
+                    document.getElementById('itemB_stock').innerText = data['itemB'] || '';
+                    document.getElementById('itemC_stock').innerText = data['itemC'] || '';
+                })
+                .catch(error => {
+                    console.error('在庫データの取得エラー:', error);
+                });
         }
 
         // ページ読み込み時に在庫数を更新する
         window.onload = function() {
             updateInventory();
+            updateInventoryTable();
         };
+
     </script>
 </head>
 <body>
@@ -136,7 +112,6 @@
             echo '</tr>';
         }
 
-        // 在庫数の行を追加
         echo '<tr>';
         echo '<td></td>';
         echo '<th>在庫数</th>';
@@ -156,14 +131,8 @@
         echo "データがありません。";
     }
 
-    // データベース接続を
-		// データベース接続を閉じる
-	$conn->close();
-	?>
+    // データベース接続を閉じる
+    $conn->close();
+    ?>
 </body>
 </html>
-
-
-<!-- 【注文管理画面】◎表示する -->
-<!-- http://localhost/A-team/management-screen.php -->
-
