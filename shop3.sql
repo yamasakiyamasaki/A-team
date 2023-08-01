@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2023-07-25 04:46:10
+-- 生成日時: 2023-08-01 08:41:45
 -- サーバのバージョン： 10.4.28-MariaDB
 -- PHP のバージョン: 8.2.4
 
@@ -22,8 +22,6 @@ SET time_zone = "+00:00";
 --
 CREATE shop3;
 USE shop3;
-
-
 -- --------------------------------------------------------
 
 --
@@ -48,12 +46,10 @@ CREATE TABLE `shop3` (
 --
 
 INSERT INTO `shop3` (`id`, `order_date`, `itemA`, `itemB`, `itemC`, `name`, `email`, `zip01`, `addr11`, `total_amount`) VALUES
-(1, '2023-07-25', 1, 3, 0, 'クロサギ', 'tokenai@ice.com', '5360023', '大阪府大阪市城東区東中浜1-1', 0),
-(2, '2023-07-25', 1, 2, 0, '太刀魚', 'tokenai@ice.com', '5360023', '大阪府大阪市城東区東中浜1-1', 0),
-(3, '2023-07-25', 3, 2, 0, 'ハマチ', 'kimimaroarigatou@kannsya.com', '5360023', '大阪府大阪市城東区東中浜1-1', 0),
-(4, '2023-07-25', 5, 4, 0, 'まぐろ', 'usagisan@pyonpyon.com', '5360023', '大阪府大阪市城東区東中浜1-1', 0),
-(5, '2023-07-25', 6, 5, 4, 'さより', 'tokenai@ice.com', '5360023', '大阪府大阪市城東区東中浜1-1', 0),
-(6, '2023-07-25', 1, 2, 3, '鯛', 'kimimarosan@arigatou.com', '5360023', '大阪府大阪市城東区東中浜1-1', 4140);
+(27, '2023-08-01', 1, 1, 1, 'シナモン', 'kimimarosan@arigatou.com', '5360023', '大阪府大阪市城東区東中浜1-1', 2070),
+(28, '2023-08-01', 1, 1, 1, 'マイメロ', 'tokenai@ice.com', '5360023', '大阪府大阪市城東区東中浜1-1', 2070),
+(30, '2023-08-01', 1, 1, 1, 'キティ', 'kimimarosan@arigatou.com', '5360023', '大阪府大阪市城東区東中浜1-1', 2070),
+(31, '2023-08-01', 1, 1, 1, 'チャーミーキティ', 'kimimarosan@arigatou.com', '5360023', '大阪府大阪市城東区東中浜1-1', 2070);
 
 --
 -- ダンプしたテーブルのインデックス
@@ -73,7 +69,7 @@ ALTER TABLE `shop3`
 -- テーブルの AUTO_INCREMENT `shop3`
 --
 ALTER TABLE `shop3`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
