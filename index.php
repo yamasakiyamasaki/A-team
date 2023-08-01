@@ -27,8 +27,8 @@
         <h2>お客様情報</h2>
             
         <div>
-            <label for="name">お名前</label><br>
-            <input type="text" id="name" name="name" autofocus required >
+        <label for="name">お名前</label><br>
+            <input type="text" id="name" name="name" autofocus required>
             </div>
             <div>
             <label for="email">メールアドレス</label><br>
@@ -43,10 +43,37 @@
             <input type="text" name="addr11" placeholder="大阪府大阪市・・・" style="width:260px">
             </div> 
             <div>
-            <input type="submit" id="submit" value="送信" onclick="submitForm()">
+            <input type="submit" id="submit" value="送信" onclick="showSubmitAlert()">
+
             </div>
         </div>
     </form> 
+    <h1>在庫一覧</h1>
+
+    <!-- 在庫情報を表示するためのテーブル -->
+    <table border="1">
+        <tr>
+            <th>商品名</th>
+            <th>在庫数</th>
+        </tr>
+        <?php
+        // get_inventory.phpから在庫情報を取得する
+        $inventoryData = json_decode(@file_get_contents("http://localhost/A-team/get_inventory.php"), true);
+
+        // 在庫情報をテーブルに表示する
+        if ($inventoryData !== null) {
+            $items = array("itemA", "itemB", "itemC");
+            foreach ($items as $item) {
+                echo "<tr>";
+                echo "<td>{$item}</td>";
+                echo "<td>{$inventoryData[$item]}</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='2'>在庫情報が取得できませんでした。</td></tr>";
+        }
+        ?>
+    </table>
               
     
 </body>
