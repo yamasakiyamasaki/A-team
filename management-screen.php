@@ -26,12 +26,32 @@
         function confirmDelete(orderId, orderName) {
             // 既存のconfirmDelete関数のコードをここに記述
             // ...
+            var result = confirm("IDナンバー " + orderId + " を削除してよろしいですか？");
+            if (result) {
+                // 「はい」を選択した場合はPHPに注文IDを送信して削除処理を実行
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "delete_order.php", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // 削除が成功したら、行をテーブルから削除
+                            var row = document.getElementById("orderRow_" + orderId);
+                            row.parentNode.removeChild(row);
+                            // 在庫数を更新する
+                            updateInventoryTable();
+                        } else {
+                            alert("削除エラーが発生しました。");
+                        }
+                    }
+                };
+
+                xhr.send("orderId=" + encodeURIComponent(orderId));
+            }
+        
         }
 
-        function updateInventory() {
-            // 既存のupdateInventory関数のコードをここに記述
-            // ...
-        }
         // 新たに在庫数を取得して表示する関数
         function updateInventoryTable() {
             // AJAXを使ってget_inventory.phpから在庫データを取得
@@ -48,10 +68,18 @@
                 });
         }
 
+        // updateInventory関数を修正して、在庫数を更新するためにupdateInventoryTable関数を呼び出す
+        function updateInventory() {
+            // 既存のupdateInventory関数のコードをここに記述
+            // ...
+
+            // 在庫数を更新するためにupdateInventoryTable関数を呼び出す
+            updateInventoryTable();
+        }
+
         // ページ読み込み時に在庫数を更新する
         window.onload = function() {
             updateInventory();
-            updateInventoryTable();
         };
 
     </script>
