@@ -7,11 +7,12 @@ $dbname = "shop3";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("データベース接続エラー: " . $conn->connect_error);
+    $errorData = array("error" => "データベース接続エラー: " . $conn->connect_error);
+    header('Content-Type: application/json');
+    echo json_encode($errorData);
+    exit;
 }
-?>
-<?php
-// テーブル名やカラム名が正確でない場合は適宜修正してください
+
 $sql = "SELECT * FROM inventory";
 $result = $conn->query($sql);
 
@@ -21,14 +22,14 @@ if ($result->num_rows > 0) {
         $inventoryData[$row["item"]] = $row["stock"];
     }
 
-    // JSON形式で在庫数を出力
+    header('Content-Type: application/json');
     echo json_encode($inventoryData);
 } else {
-    echo "データがありません。";
+    $noDataMessage = array("message" => "データがありません。");
+    header('Content-Type: application/json');
+    echo json_encode($noDataMessage);
 }
 
 $conn->close();
 ?>
 
-
-<!-- 注文管理画面に在庫数を表示する -->
