@@ -46,6 +46,7 @@
         // 結果をテーブル形式で表示
         echo '<table>';
         echo '<tr>';
+        
         echo '<th>ID</th>';
         echo '<th>アイテム</th>';
         echo '<th>在庫数</th>';
@@ -55,7 +56,7 @@
             echo '<tr>';
             echo '<td>' . $row["id"] . '</td>';
             echo '<td>' . $row["item"] . '</td>';
-            echo '<td>' . $row["stock"] . '</td>';
+            echo '<td id="stock-' . $row["id"] . '">' . $row["stock"] . '</td>';
             echo '</tr>';
         }
 
@@ -64,12 +65,67 @@
         echo "データがありません。";
     }
 
+    // アイテム一覧を取得するクエリ
+    $sql_items = "SELECT item FROM inventory";
+
+    // クエリを実行して結果を取得
+    $result_items = $conn->query($sql_items);
+
+    if ($result_items->num_rows > 0) {
+        // 在庫追加フォームのHTMLを表示
+        echo '
+        <h2>在庫を追加する</h2>
+        <form id="add-stock-form">
+            <label for="item_name">アイテム名:</label>
+            <select id="item_name" name="item_name" required>';
+        
+        while ($row = $result_items->fetch_assoc()) {
+            echo '<option value="' . $row["item"] . '">' . $row["item"] . '</option>';
+        }
+
+        echo '
+            </select><br>
+            <label for="quantity">追加する在庫数:</label>
+            <input type="number" id="quantity" name="quantity" required><br>
+            <input type="button" value="追加" onclick="addStock()">
+        </form>
+        ';
+    } else {
+        echo "アイテムがありません。";
+    }
+
     // データベース接続を閉じる
     $conn->close();
     ?>
 
+    <script>
+        function addStock() {
+            const item = document.getElementById("item_name").value;
+            const quantity = document.getElementById("quantity").value;
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "add-stock.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        // 在庫を即座に反映
+                        document.getElementById("stock-" + response.id).innerText = response.updatedStock;
+                        alert("在庫が追加されました。");
+                    } else {
+                        alert("エラー: " + response.message);
+                    }
+                }
+            };
+            xhr.send("item_name=" + encodeURIComponent(item) + "&quantity=" + encodeURIComponent(quantity));
+        }
+    </script>
+
 </body>
 </html>
+
+
+
 
 
 <!-- 【在庫管理表】◎表示する -->
