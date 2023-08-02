@@ -83,5 +83,30 @@
             return emailRegex.test(email);
         }
     </script>
+     <script>
+    function submitForm() {
+        // フォーム送信前にクライアント側でフォームのバリデーションを行います
+        if (!validateForm()) {
+            return false;
+        }
+
+        // jQueryを使用してフォームデータをAJAXで送信します
+        $.ajax({
+            url: 'process.php', // PHP処理ファイルのURL
+            type: 'POST',
+            data: $('#form').serialize(), // フォームデータをシリアライズ
+            dataType: 'json', // サーバーからのJSONレスポンスを期待
+            success: function(data) {
+                alert(data.message); // レスポンスのメッセージをアラートで表示
+            },
+            error: function(xhr, status, error) {
+                alert('エラー: データベースへの保存に失敗しました。'); // リクエストに問題がある場合はエラーメッセージを表示
+            }
+        });
+
+        // フォームの通常の送信を防ぎます
+        return false;
+    }
+</script>        
 </body>
 </html>

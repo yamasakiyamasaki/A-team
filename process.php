@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 <?php
 // データベースの接続情報
 $servername = "localhost";
@@ -86,11 +78,15 @@ try {
     // トランザクションをコミット
     $conn->commit();
 
-    echo "注文が完了しました。";
+    // 成功時のレスポンスを準備
+    $response = array('message' => '注文が完了しました。');
 } catch (Exception $e) {
     // トランザクションをロールバック
     $conn->rollback();
-    echo "エラー: " . $e->getMessage();
+
+    // エラーメッセージをJSONレスポンスとして返す
+    http_response_code(500); // Internal Server Error
+    $response = array('message' => 'エラー: ' . $e->getMessage());
 }
 
 // プリペアドステートメントを閉じる
@@ -98,11 +94,8 @@ $stmt->close();
 
 // データベース接続を閉じる
 $conn->close();
+
+// JSON形式でレスポンスを返す
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>
-
-</body>
-</html>
-
-
-<!-- トップページのお問い合わせフォーム、注文内容の送信 -->
-
