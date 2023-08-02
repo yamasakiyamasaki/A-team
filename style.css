@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.ahiru{
+	display: flex;
+	align-items: center;
+	}
+	.ahirutitle {
+	margin-right: 10px;
+	font-size: 48px;
+	
+	}
+	.ordernumber div {
+	display: inline-block;
+	margin-right: 10px; /* 要素間の余白を調整する場合、適宜変更してください */
+	}
+	/* 全体のサイズをパソコンの標準サイズに設定 */
+	body {
+	max-width: 1200px;
+	margin: 0 auto; /* ページ中央寄せ */
+	}
+	
+	/* オーダーのフォームを中央寄せ */
+	.order {
+	text-align: center;
+	}
+	
+	/* お客様情報フォームを中央寄せ */
+	.contact-form {
+	text-align: center;
+	}
+	
+	/* 注文個数の入力欄を中央寄せ */
+	.ordernumber div {
+	display: inline-block;
+	margin: 10px;
+	}
+	
+	/* その他のスタイルはここに追加 */
+	.ahiru{
+	/* display: inline-block; */
+	text-align: center;
+	}
+	.ahirugazou {
+	 text-align: center;
+	}
