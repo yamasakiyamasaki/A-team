@@ -8,7 +8,18 @@
     <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
 </head>
 <body>
-    <p>690円</p>
+    <div class="ahiru">
+        <div>
+        <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
+        <p class="ahirutitle">アヒルショップ</p>
+        </div> 
+    </div>
+    <div class="ahirugazou">
+        <img src="img/ahirushark.png" class="ahirugazou">
+        <img src="img/ahiruspiderman.png" class="ahirugazou">
+        <img src="img/ahirustar.png" class="ahirugazou"> 
+    </div>
+    <p>価格690円</p>
     <form action="process.php" method="POST" id="form" onsubmit="return validateForm()">
         <div class="order">
             <div class="ordernumber">
