@@ -9,9 +9,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="ue">
+        <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
+        <p class="headtext">アヒル隊長が自転車用パフホーンになって登場！
+            <br>押すと音が鳴り、ヘルメットは着脱可能。
+            <br>回るプロペラでお子様が喜ぶこと間違いなし！
+            <br>貴方の愛車のお供にいかがでしょうか?
+            <br>アヒル隊長のことをもっと知りたい方は<a href="https://www.pilot-toy.com/ahirutaicho/">コチラ</a>
+        </p>
+        <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
+    </header>
+
     <div class="ahiru">
         <div>
-        <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
+        
         <p class="ahirutitle">アヒルショップ</p>
         </div> 
     </div>
@@ -53,13 +64,14 @@
             <div> 
                 <label>都道府県と以降の住所</label><br>
                 <input type="text" name="addr11" placeholder="大阪府大阪市・・・" style="width:260px">
-            </div> 
+            </div>
+            <br> 
             <div>
                 <input type="submit" id="submit" value="送信">
             </div>
         </section>
     </form> 
-    
+    <br>
     <script>
         function validateForm() {
             var name = document.getElementById('name').value;
@@ -119,6 +131,17 @@
         // フォームの通常の送信を防ぎます
         return false;
     }
-</script>        
+</script>
+<footer>
+<img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
+        <p class="headtext">お客様から数々のご好評いただいております！
+            <br>
+            <br>・プロペラ、ヘルメット、音等ギミックがたくさんある
+            <br>・自転車に乗りたがるので、乗せるときのストレスが無くなる
+            <br>・子供が夢中になるので、安全に走行できる…等々
+            
+        </p>
+        <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
+</footer>        
 </body>
 </html>
