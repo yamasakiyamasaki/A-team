@@ -1,4 +1,13 @@
 @charset "UTF-8";
+header {
+	background-color: #FFFF66;
+	display: flex;
+	justify-content: space-between;
+}
+
+.headtext {
+	position:relative;
+}
 
 .ahiru{
 	display: flex;
@@ -42,4 +51,10 @@
 	}
 	.ahirugazou {
 	 text-align: center;
+	}
+
+	footer {
+	background-color: #FFFF66;
+	display: flex;
+	justify-content: space-between;
 	}
