@@ -32,7 +32,7 @@
         <img src="img/ahirustar.png" class="ahirugazou"> 
     </div>
     <p>価格690円</p>
-    <form action="process.php" method="POST" id="form" onsubmit="return validateForm()">
+    <form action="process.php" method="POST" id="form" onsubmit="return submitForm()">
         <div class="order">
             <div class="ordernumber">
                 <div>
@@ -131,15 +131,14 @@
         // フォームの通常の送信を防ぎます
         return false;
     }
-</script>
+    </script>
 <footer>
-<img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
-        <p class="headtext">お客様から数々のご好評いただいております！
+        <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
+        <p class="headtext">お客様から数々のご好評をいただいております！
             <br>
             <br>・プロペラ、ヘルメット、音等ギミックがたくさんある
-            <br>・自転車に乗りたがるので、乗せるときのストレスが無くなる
-            <br>・子供が夢中になるので、安全に走行できる…等々
-            
+            <br>・子供が夢中になるので、安全に走行できる
+            <br>・自転車に乗りたがるので、乗せるときのストレスが無くなる…等々           
         </p>
         <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
 </footer>        
