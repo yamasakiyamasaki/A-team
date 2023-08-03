@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax動作サンプル</title>
+    <link rel="icon" href="img/ahiruicon.png">
     <script type="text/javascript" src="ajax.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
@@ -59,28 +60,11 @@
         <img src="img/ahiruspiderman.png" class="ahirugazou">
         <img src="img/ahirustar.png" class="ahirugazou">
     </div>
-
-    <form action="process.php" method="POST" id="form" onsubmit="return validateForm()">
-        <div class="order">
-            <div class="ordernumber">
-                <div>
-                    <p>価格690円</p>
-                    <input type="number" min="0" name="itemA" class="" placeholder="Aの注文個数">個
-                </div>
-                <div>
-                    <p>価格690円</p>
-                    <input type="number" min="0" name="itemB" class="" placeholder="Bの注文個数">個
-                </div>   
-                <div>
-                    <p>価格690円</p>
-                    <input type="number" min="0" name="itemC" class="" placeholder="Cの注文個数">個
-                </div>   
-
-    <p>価格690円</p>
     <form action="process.php" method="POST" id="form" onsubmit="return submitForm()">
         <div class="order">
             <div class="ordernumber">
                 <div>
+                    <p>価格690円</p>
                     <?php
                     if ($itemA_stock > 0) {
                         echo '<input type="number" min="0" name="itemA" class="" placeholder="Aの注文個数">個 (在庫あり)';
@@ -90,6 +74,7 @@
                     ?>
                 </div>
                 <div>
+                    <p>価格690円</p>
                     <?php
                     if ($itemB_stock > 0) {
                         echo '<input type="number" min="0" name="itemB" class="" placeholder="Bの注文個数">個 (在庫あり)';
@@ -99,6 +84,7 @@
                     ?>
                 </div>
                 <div>
+                    <p>価格690円</p>
                     <?php
                     if ($itemC_stock > 0) {
                         echo '<input type="number" min="0" name="itemC" class="" placeholder="Cの注文個数">個 (在庫あり)';
