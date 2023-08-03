@@ -18,19 +18,21 @@
     <div class="ahirugazou">
         <img src="img/ahirushark.png" class="ahirugazou">
         <img src="img/ahiruspiderman.png" class="ahirugazou">
-        <img src="img/ahirustar.png" class="ahirugazou"> 
+        <img src="img/ahirustar.png" class="ahirugazou">
     </div>
-    <p>価格690円</p>
     <form action="process.php" method="POST" id="form" onsubmit="return validateForm()">
         <div class="order">
             <div class="ordernumber">
                 <div>
+                    <p>価格690円</p>
                     <input type="number" min="0" name="itemA" class="" placeholder="Aの注文個数">個
                 </div>
                 <div>
+                    <p>価格690円</p>
                     <input type="number" min="0" name="itemB" class="" placeholder="Bの注文個数">個
                 </div>   
                 <div>
+                    <p>価格690円</p>
                     <input type="number" min="0" name="itemC" class="" placeholder="Cの注文個数">個
                 </div>   
             </div>
