@@ -21,11 +21,39 @@
     </header>
 
     <div class="ahiru">
-        <div>
-        
+        <div>        
         <p class="ahirutitle">アヒルショップ</p>
         </div> 
     </div>
+    <?php
+    // データベースに接続する処理（例としてPDOを使用）
+    $host = "localhost";
+    $dbname = 'shop3';
+    $username = 'root';
+    $password = '';
+    try {
+        $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die('データベースに接続できませんでした。' . $e->getMessage());
+    }
+
+    // 商品Aの在庫数をデータベースから取得するクエリ
+    $itemA_query = "SELECT stock FROM inventory WHERE id = '1'";
+    $itemA_result = $db->query($itemA_query);
+    $itemA_stock = $itemA_result->fetchColumn();
+
+    // 商品Bの在庫数をデータベースから取得するクエリ
+    $itemB_query = "SELECT stock FROM inventory WHERE id = '2'";
+    $itemB_result = $db->query($itemB_query);
+    $itemB_stock = $itemB_result->fetchColumn();
+
+    // 商品Cの在庫数をデータベースから取得するクエリ
+    $itemC_query = "SELECT stock FROM inventory WHERE id = '3'";
+    $itemC_result = $db->query($itemC_query);
+    $itemC_stock = $itemC_result->fetchColumn();
+    ?>
+
     <div class="ahirugazou">
         <img src="img/ahirushark.png" class="ahirugazou">
         <img src="img/ahiruspiderman.png" class="ahirugazou">
@@ -36,16 +64,35 @@
         <div class="order">
             <div class="ordernumber">
                 <div>
-                    <input type="number" min="0" name="itemA" class="" placeholder="Aの注文個数">個
+                    <?php
+                    if ($itemA_stock > 0) {
+                        echo '<input type="number" min="0" name="itemA" class="" placeholder="Aの注文個数">個 (在庫あり)';
+                    } else {
+                        echo 'Aの商品は在庫切れです。';
+                    }
+                    ?>
                 </div>
                 <div>
-                    <input type="number" min="0" name="itemB" class="" placeholder="Bの注文個数">個
-                </div>   
+                    <?php
+                    if ($itemB_stock > 0) {
+                        echo '<input type="number" min="0" name="itemB" class="" placeholder="Bの注文個数">個 (在庫あり)';
+                    } else {
+                        echo 'Bの商品は在庫切れです。';
+                    }
+                    ?>
+                </div>
                 <div>
-                    <input type="number" min="0" name="itemC" class="" placeholder="Cの注文個数">個
-                </div>   
+                    <?php
+                    if ($itemC_stock > 0) {
+                        echo '<input type="number" min="0" name="itemC" class="" placeholder="Cの注文個数">個 (在庫あり)';
+                    } else {
+                        echo 'Cの商品は在庫切れです。';
+                    }
+                    ?>
+                </div>
             </div>
         </div>
+
         <section class="contact-form">
             <h2>お客様情報</h2>
             
@@ -69,6 +116,7 @@
             <div>
                 <input type="submit" id="submit" value="送信">
             </div>
+
         </section>
     </form> 
     <br>
