@@ -58,3 +58,45 @@ header {
 	display: flex;
 	justify-content: space-between;
 	}
+
+
+	/* お問い合わせフォーム */
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 400px;
+	margin: 50px auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.contact-form h2 {
+		margin-bottom: 20px;
+}
+
+.contact-form div {
+		margin-bottom: 15px;
+}
+
+.contact-form label {
+		font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+		width: 100%;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+		background-color: #4CAF50;
+		color: #fff;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+}
