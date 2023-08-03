@@ -99,19 +99,25 @@
     ?>
 
     <script>
+        // グローバルスコープでxhrを定義
+        let xhr;
+
         function addStock() {
             const item = document.getElementById("item_name").value;
             const quantity = document.getElementById("quantity").value;
-            const xhr = new XMLHttpRequest();
+            xhr = new XMLHttpRequest();
             xhr.open("POST", "add-stock.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     const response = JSON.parse(xhr.responseText);
                     if (response.success) {
-                        // 在庫を即座に反映
-                        document.getElementById("stock-" + response.id).innerText = response.updatedStock;
+                        const stockElement = document.getElementById("stock-" + response.id);
+                        if (stockElement) {
+                            stockElement.innerText = response.updatedStock;
+                        }
                         alert("在庫が追加されました。");
+                        updateStockDisplay();
                     } else {
                         alert("エラー: " + response.message);
                     }
@@ -119,15 +125,28 @@
             };
             xhr.send("item_name=" + encodeURIComponent(item) + "&quantity=" + encodeURIComponent(quantity));
         }
-    </script>
 
+        function updateStockDisplay() {
+            const newXHR = new XMLHttpRequest();
+            newXHR.open("GET", "get-stock.php", true);
+            newXHR.onreadystatechange = function() {
+                if (newXHR.readyState === 4 && newXHR.status === 200) {
+                    const stocks = JSON.parse(newXHR.responseText);
+                    for (const stock of stocks) {
+                        const stockElement = document.getElementById("stock-" + stock.id);
+                        if (stockElement) {
+                            stockElement.innerText = stock.stock;
+                        }
+                    }
+                }
+            };
+            newXHR.send();
+        }
+
+        // ページ読み込み時に在庫数を更新
+        window.onload = function() {
+            updateStockDisplay();
+        };
+    </script>
 </body>
 </html>
-
-
-
-
-
-<!-- 【在庫管理表】◎表示する -->
-<!-- http://localhost/A-team/inventory-control.php -->
-
