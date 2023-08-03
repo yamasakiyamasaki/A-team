@@ -51,6 +51,7 @@ header {
 	}
 	.ahirugazou {
 	 text-align: center;
+	 margin: 0 45px;
 	}
 
 	footer {
@@ -100,3 +101,17 @@ header {
 		border-radius: 5px;
 		cursor: pointer;
 }
+.ahiru {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center; 
+	}
+	
+	.ahirutitle {
+	 margin-right: 10px;
+	 font-size: 48px;
+	}
+	.ahirutitle {
+        font-family: "Lato", sans-serif;
+        /* 他のスタイル指定も可能 */
+    }
