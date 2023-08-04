@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- アヒルショップ -->
     <header class="ue">
         <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
         <p class="headtext">アヒル隊長が自転車用パフホーンになって登場！
