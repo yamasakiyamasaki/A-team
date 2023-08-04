@@ -8,7 +8,7 @@
     <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body background="img/road.jpg">
     <header class="ue">
         <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
         <p class="headtext">アヒル隊長が自転車用パフホーンになって登場！
@@ -19,7 +19,7 @@
         </p>
         <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
     </header>
-
+<!-- aaaaaaaa -->
     <div class="ahiru">
         <div>        
         <p class="ahirutitle">アヒルショップ</p>
