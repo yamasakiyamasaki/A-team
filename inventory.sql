@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- データベース: `shop3`
 --
-CREATE DATABASE shop3;
+CREATE DATABASE IF NOT EXISTS shop3;
 USE inventory;
 -- --------------------------------------------------------
 
