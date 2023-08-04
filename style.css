@@ -59,7 +59,12 @@ header {
 	display: flex;
 	justify-content: space-between;
 	}
-
+.ordernumber input{
+	width: 80px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
 
 	/* お問い合わせフォーム */
 .contact-form {
