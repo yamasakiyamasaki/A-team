@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- アヒルショップ -->
     <header class="ue">
         <img src="img/ahiruicon.png" alt="Image" style="width:150px;"0. >
         <p class="headtext">アヒル隊長が自転車用パフホーンになって登場！
@@ -68,7 +67,7 @@
                     <p>価格690円</p>
                     <?php
                     if ($itemA_stock > 0) {
-                        echo '<input type="number" min="0" name="itemA" class="" placeholder="Aの注文個数">個 (在庫あり)';
+                        echo '<input type="number" min="0" max="' . $itemA_stock . '" name="itemA" class="" placeholder="">個 (在庫あり)';
                     } else {
                         echo 'Aの商品は在庫切れです。';
                     }
@@ -78,7 +77,7 @@
                     <p>価格690円</p>
                     <?php
                     if ($itemB_stock > 0) {
-                        echo '<input type="number" min="0" name="itemB" class="" placeholder="Bの注文個数">個 (在庫あり)';
+                        echo '<input type="number" min="0" max="' . $itemB_stock . '" name="itemB" class="" placeholder="">個 (在庫あり)';
                     } else {
                         echo 'Bの商品は在庫切れです。';
                     }
@@ -88,10 +87,11 @@
                     <p>価格690円</p>
                     <?php
                     if ($itemC_stock > 0) {
-                        echo '<input type="number" min="0" name="itemC" class="" placeholder="Cの注文個数">個 (在庫あり)';
+                        echo '<input type="number" min="0" max="' . $itemC_stock . '" name="itemC" class="" placeholder="">個 (在庫あり)';
                     } else {
                         echo 'Cの商品は在庫切れです。';
                     }
+
                     ?>
                 </div>
 
